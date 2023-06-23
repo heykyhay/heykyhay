@@ -1,22 +1,13 @@
 <html>
 <head>
-    
-    <title>Babylon.js Scene</title>
-    <style>
-        #renderCanvas {
-            width: 100%;
-            height: 100%;
-            touch-action: none;
-        }
-    </style>
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
 </head>
 <body>
     <canvas id="renderCanvas"></canvas>
 
-    <script src="https://cdn.babylonjs.com/babylon.js"></script>
     <script>
- var createScene = function () {
-      
+        var canvas = document.getElementById("renderCanvas");
+        var engine = new BABYLON.Engine(canvas, true);
 
         var scene = new BABYLON.Scene(engine);
         var camera = new BABYLON.FreeCamera("camera", new BABYLON.Vector3(0, 0, -10), scene);
@@ -51,21 +42,9 @@
         engine.runRenderLoop(function () {
             scene.render();
         });
-
+        
         window.addEventListener("resize", function () {
             engine.resize();
-        });
-    return scene;
-};
-
-        var scene = createScene();
-
-        BABYLON.SceneLoader.ImportMesh("", "path/to/yeti/", "yeti.mesh", scene, function (newMeshes) {
-            newMeshes[0].scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
-        });
-
-        engine.runRenderLoop(function () {
-            scene.render();
         });
     </script>
 </body>
