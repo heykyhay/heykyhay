@@ -1,4 +1,3 @@
-<script>
 var createScene = function () {
       
 
@@ -79,4 +78,3 @@ camera.attachControl(canvas, true);
         });
     return scene;
 };
-</script>
